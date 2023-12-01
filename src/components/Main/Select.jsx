@@ -1,0 +1,18 @@
+import React from 'react'
+import { FormControl, FormLabel, Select as SelectChakra } from '@chakra-ui/react'
+
+export default function Select() {
+  return (
+    <div>
+      <FormControl>
+        <FormLabel>Mostrar ...</FormLabel>
+        <SelectChakra>
+        <option selected disabled>Seleccione una opción</option>
+          <option value='todos'>Todos</option>
+          <option value='completas'>Completas</option>
+          <option value='incompletas'>Incompletas</option>
+        </SelectChakra>
+      </FormControl>
+    </div>
+  )
+}

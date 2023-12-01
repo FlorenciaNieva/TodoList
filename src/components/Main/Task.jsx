@@ -3,7 +3,7 @@ import { FormControl, FormLabel, FormErrorMessage, Input, Button} from '@chakra-
 import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
 
-export default function Task() {
+export default function Task({ tasks, setTasks }) {
   function validateTask(value) {
     let error
     if (!value) {

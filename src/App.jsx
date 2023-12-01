@@ -5,11 +5,11 @@ import { useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState(localStorage.getItem('tasks') || [])
-  
+
   return (
     <>
       <Header />
-      <Main />
+      <Main tasks={tasks} setTasks={setTasks}/>
     </>
   )
 }

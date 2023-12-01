@@ -2,8 +2,9 @@ import React from 'react'
 import { FormControl, FormLabel, FormErrorMessage, Input, Button} from '@chakra-ui/react'
 import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Task() {
+export default function Task({ tasks, setTasks }) {
   function validateTask(value) {
     let error
     if (!value) {
@@ -24,15 +25,19 @@ export default function Task() {
           task: '',
         }}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            alert('se agrego la tarea')
-            actions.setSubmitting(false)
-          }, 500)
+          const newTask = {
+            id: uuidv4(),
+            task: values
+          }
+          localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
+          setTasks([ ...tasks, newTask]);
+          actions.setSubmitting(false);
+          actions.resetForm();
         }}
         >
         {(props) => (
           <Form>
-            <Field name='task' validate={validateTask}>
+            <Field id='task' name='task' validate={validateTask}>
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.task} isRequired>
                   <FormLabel>Task</FormLabel>

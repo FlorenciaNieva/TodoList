@@ -1,4 +1,5 @@
 import React from 'react'
+import Task from './Task'
 import { Flex, Spacer, Box} from '@chakra-ui/react'
 
 export default function ContainerForm() {
@@ -6,7 +7,7 @@ export default function ContainerForm() {
     <>
       <Flex>
         <Box m='4' p='10' w='50%'>
-          Box 1
+          <Task />
         </Box>
         <Spacer />
         <Box m='4' p='10' w='50%'>

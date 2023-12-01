@@ -8,7 +8,7 @@ export default function ContainerForm({ tasks, setTasks }) {
     <>
       <Flex>
         <Box m='4' p='10' w='50%'>
-          <Task />
+          <Task tasks={tasks} setTasks={setTasks}/>
         </Box>
         <Spacer />
         <Box m='4' p='10' w='50%'>

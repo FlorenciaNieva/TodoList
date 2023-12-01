@@ -32,6 +32,7 @@ export default function Task({ tasks, setTasks }) {
           localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
           setTasks([ ...tasks, newTask]);
           actions.setSubmitting(false);
+          actions.resetForm();
         }}
         >
         {(props) => (

@@ -1,7 +1,10 @@
 import React from 'react'
+import ContainerForm from './ContainerForm'
 
 export default function Main() {
   return (
-    <div>Main</div>
+    <main>
+      <ContainerForm />
+    </main>
   )
 }

@@ -4,7 +4,7 @@ import ContainerForm from './ContainerForm'
 export default function Main({ tasks, setTasks }) {
   return (
     <main>
-      <ContainerForm />
+      <ContainerForm tasks={tasks} setTasks={setTasks}/>
     </main>
   )
 }

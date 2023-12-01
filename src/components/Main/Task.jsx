@@ -25,20 +25,18 @@ export default function Task({ tasks, setTasks }) {
           task: '',
         }}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            const newTask = {
-              id: uuidv4(),
-              task: values
-            }
-            localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
-            setTasks([ ...tasks, newTask]);
-            actions.setSubmitting(false)
-          }, 500)
+          const newTask = {
+            id: uuidv4(),
+            task: values
+          }
+          localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
+          setTasks([ ...tasks, newTask]);
+          actions.setSubmitting(false);
         }}
         >
         {(props) => (
           <Form>
-            <Field name='task' validate={validateTask}>
+            <Field id='task' name='task' validate={validateTask}>
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.task} isRequired>
                   <FormLabel>Task</FormLabel>

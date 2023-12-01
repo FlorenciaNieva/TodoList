@@ -2,6 +2,7 @@ import React from 'react'
 import { FormControl, FormLabel, FormErrorMessage, Input, Button} from '@chakra-ui/react'
 import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Task({ tasks, setTasks }) {
   function validateTask(value) {
@@ -26,6 +27,7 @@ export default function Task({ tasks, setTasks }) {
         onSubmit={(values, actions) => {
           setTimeout(() => {
             const newTask = {
+              id: uuidv4(),
               task: values
             }
             localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));

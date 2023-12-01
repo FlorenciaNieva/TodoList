@@ -25,7 +25,11 @@ export default function Task({ tasks, setTasks }) {
         }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            alert('se agrego la tarea')
+            const newTask = {
+              task: values
+            }
+            localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
+            setTasks([ ...tasks, newTask]);
             actions.setSubmitting(false)
           }, 500)
         }}

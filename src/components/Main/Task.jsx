@@ -21,7 +21,9 @@ export default function Task({ task, id, onDelete }) {
       overflow="hidden"
       p="4"
       boxShadow="md"
-      mb="4">
+      mb="4"
+      className={complete ? styles.complete : ''}
+      >
       <Flex justifyContent="space-between" alignItems="center">
         <Text>{task}</Text>
         <Flex>

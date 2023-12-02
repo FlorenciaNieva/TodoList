@@ -1,8 +1,12 @@
-import { Flex, Box, Button, Text, Center } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Flex, Box, Button, Text } from '@chakra-ui/react'
 import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
+import styles from "./Task.module.css"
 
 export default function Task({ task, id, onDelete }) {
+  const [complete, setComplete] = useState(false);
+
   return (
     <Box borderWidth="1px"
       borderRadius="lg"

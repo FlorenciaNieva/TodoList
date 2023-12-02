@@ -4,7 +4,7 @@ import Main from './components/Main/Main'
 import { useState } from 'react';
 
 function App() {
-  const [tasks, setTasks] = useState(localStorage.getItem('tasks') || [])
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || [])
 
   return (
     <>

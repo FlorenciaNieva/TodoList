@@ -7,6 +7,14 @@ import styles from "./Task.module.css"
 export default function Task({ task, id, onDelete }) {
   const [complete, setComplete] = useState(false);
 
+  const toggleComplete = () => {
+    if (complete === false) {
+      setComplete(true);
+    } else {
+      setComplete(false);
+    }
+  }
+
   return (
     <Box borderWidth="1px"
       borderRadius="lg"

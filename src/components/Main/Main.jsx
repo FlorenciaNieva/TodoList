@@ -6,7 +6,7 @@ export default function Main({ tasks, setTasks }) {
   return (
     <main>
       <ContainerForm tasks={tasks} setTasks={setTasks}/>
-      <ContainerLists />
+      <ContainerLists tasks={tasks}/>
     </main>
   )
 }

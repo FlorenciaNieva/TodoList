@@ -3,8 +3,10 @@ import Task from './Task'
 
 export default function ContainerLists({ tasks }) {
   return (
-    <div>
-      <Task />
-    </div>
-  )
+    <>
+      {tasks.map((task) => (
+        <Task key={task.id} task={task.task} id={task.id} />
+      ))}
+    </>
+  );
 }

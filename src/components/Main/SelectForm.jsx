@@ -7,7 +7,6 @@ export default function SelectForm() {
       <FormControl>
         <FormLabel>Mostrar ...</FormLabel>
         <SelectChakra>
-        <option selected disabled>Seleccione una opción</option>
           <option value='todos'>Todos</option>
           <option value='completas'>Completas</option>
           <option value='incompletas'>Incompletas</option>

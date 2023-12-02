@@ -27,7 +27,7 @@ export default function TaskForm({ tasks, setTasks }) {
         onSubmit={(values, actions) => {
           const newTask = {
             id: uuidv4(),
-            task: values
+            task: values.task
           }
           localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
           setTasks([ ...tasks, newTask]);

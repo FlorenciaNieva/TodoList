@@ -2,7 +2,7 @@ import { Flex, Box, Button, Text, Center } from '@chakra-ui/react'
 import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
 
-export default function Task({ task, id }) {
+export default function Task({ task, id, onDelete }) {
   return (
     <Box borderWidth="1px"
       borderRadius="lg"
@@ -14,7 +14,7 @@ export default function Task({ task, id }) {
         <Text>{task}</Text>
         <Flex>
           <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Tachar"><TiTickOutline /></Button>
-          <Button colorScheme='red' variant='outline' aria-label="Eliminar"><TiTimesOutline /></Button>
+          <Button colorScheme='red' variant='outline' aria-label="Eliminar" onClick={() => onDelete(id)}><TiTimesOutline /></Button>
         </Flex>
       </Flex>
     </Box>

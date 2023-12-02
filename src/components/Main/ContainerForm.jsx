@@ -1,5 +1,5 @@
 import React from 'react'
-import Task from './Task'
+import Task from './TaskForm'
 import Select from './Select'
 import { Flex, Spacer, Box} from '@chakra-ui/react'
 

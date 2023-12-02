@@ -4,7 +4,7 @@ import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Task({ tasks, setTasks }) {
+export default function TaskForm({ tasks, setTasks }) {
   function validateTask(value) {
     let error
     if (!value) {

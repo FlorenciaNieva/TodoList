@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormControl, FormLabel, Select as SelectChakra } from '@chakra-ui/react'
 
-export default function Select() {
+export default function SelectForm() {
   return (
     <div>
       <FormControl>

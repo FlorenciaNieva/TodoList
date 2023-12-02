@@ -17,7 +17,7 @@ export default function Task({ task, id, onDelete }) {
       <Flex justifyContent="space-between" alignItems="center">
         <Text>{task}</Text>
         <Flex>
-          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Tachar"><TiTickOutline /></Button>
+          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Completado"><TiTickOutline /></Button>
           <Button colorScheme='red' variant='outline' aria-label="Eliminar" onClick={() => onDelete(id)}><TiTimesOutline /></Button>
         </Flex>
       </Flex>

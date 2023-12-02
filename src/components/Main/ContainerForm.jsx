@@ -1,6 +1,6 @@
 import React from 'react'
-import Task from './Task'
-import Select from './Select'
+import Task from './TaskForm'
+import Select from './SelectForm'
 import { Flex, Spacer, Box} from '@chakra-ui/react'
 
 export default function ContainerForm({ tasks, setTasks }) {

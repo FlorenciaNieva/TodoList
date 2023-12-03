@@ -44,7 +44,7 @@ export default function TaskForm({ tasks, setTasks }) {
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.task} isRequired>
                   <FormLabel color='#f6f1ff'>Task</FormLabel>
-                  <Input {...field} placeholder='Escribe una tarea ...' borderColor='gray.200' sx={{ '::placeholder': { color: '#f6f1ff' } }} focusBorderColor='#6e0acd' />
+                  <Input {...field} placeholder='Escribe una tarea ...' color='#f6f1ff' borderColor='gray.200' sx={{ '::placeholder': { color: '#f6f1ff' } }} focusBorderColor='#6e0acd' />
                   <FormErrorMessage>{form.errors.task}</FormErrorMessage>
                 </FormControl>
               )}

@@ -1,22 +1,11 @@
-import { useState } from 'react'
 import { Flex, Box, Button, Text } from '@chakra-ui/react'
 import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
 import styles from "./Task.module.css"
 
-export default function Task({ task, id, onDelete, setCompleted }) {
-  const [complete, setComplete] = useState(false);
-
-  const toggleComplete = () => {
-    if (complete === false) {
-      setComplete(true);
-    } else {
-      setComplete(false);
-    }
-  }
+export default function Task({ task, id, complete, onDelete, setCompleted }) {
 
   const handleComplete = (task, id, complete) => {
-    toggleComplete();
     setCompleted(task, id, complete);
   }
 

@@ -15,6 +15,10 @@ export default function Task({ task, id, onDelete }) {
     }
   }
 
+  const handleComplete = () => {
+    toggleComplete();
+  }
+
   return (
     <Box borderWidth="1px"
       borderRadius="lg"
@@ -27,7 +31,7 @@ export default function Task({ task, id, onDelete }) {
       <Flex justifyContent="space-between" alignItems="center">
         <Text>{task}</Text>
         <Flex>
-          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Completado" onClick={() => toggleComplete()}><TiTickOutline /></Button>
+          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Completado" onClick={() => handleComplete()}><TiTickOutline /></Button>
           <Button colorScheme='red' variant='outline' aria-label="Eliminar" onClick={() => onDelete(id)}><TiTimesOutline /></Button>
         </Flex>
       </Flex>

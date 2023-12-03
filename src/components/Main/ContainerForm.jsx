@@ -3,7 +3,7 @@ import Task from './TaskForm'
 import Select from './SelectForm'
 import { Flex, Spacer, Box} from '@chakra-ui/react'
 
-export default function ContainerForm({ tasks, setTasks }) {
+export default function ContainerForm({ tasks, setTasks, filterTasks }) {
   return (
     <>
       <Flex>
@@ -12,7 +12,7 @@ export default function ContainerForm({ tasks, setTasks }) {
         </Box>
         <Spacer />
         <Box m='4' p='10' w='50%'>
-          <Select />
+          <Select filterTasks={filterTasks} />
         </Box>
       </Flex>
     </>

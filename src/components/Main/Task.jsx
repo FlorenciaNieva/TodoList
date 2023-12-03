@@ -4,7 +4,7 @@ import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
 import styles from "./Task.module.css"
 
-export default function Task({ task, id, onDelete }) {
+export default function Task({ task, id, onDelete, setCompleted }) {
   const [complete, setComplete] = useState(false);
 
   const toggleComplete = () => {
@@ -15,8 +15,9 @@ export default function Task({ task, id, onDelete }) {
     }
   }
 
-  const handleComplete = () => {
+  const handleComplete = (task, id, complete) => {
     toggleComplete();
+    setCompleted(task, id, complete);
   }
 
   return (
@@ -31,7 +32,7 @@ export default function Task({ task, id, onDelete }) {
       <Flex justifyContent="space-between" alignItems="center">
         <Text>{task}</Text>
         <Flex>
-          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Completado" onClick={() => handleComplete()}><TiTickOutline /></Button>
+          <Button mr={2} colorScheme='whatsapp' variant='solid' aria-label="Completado" onClick={() => handleComplete(task, id, complete)}><TiTickOutline /></Button>
           <Button colorScheme='red' variant='outline' aria-label="Eliminar" onClick={() => onDelete(id)}><TiTimesOutline /></Button>
         </Flex>
       </Flex>

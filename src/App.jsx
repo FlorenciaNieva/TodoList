@@ -6,6 +6,8 @@ import { useState } from 'react';
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
+  const originalTasks = JSON.parse(localStorage.getItem('tasks'));
+
   const onDelete = (id) => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);

@@ -57,7 +57,7 @@ export default function TaskForm({ tasks, setTasks }) {
               type='submit'
               color='#f6f1ff'
               _hover={{
-                background: "#9944ff",
+                background: "#8e0acd",
               }}
             >
               Add task

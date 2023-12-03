@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} />
+      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} filterTasks={filterTasks} />
     </>
   )
 }

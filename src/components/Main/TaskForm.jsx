@@ -56,6 +56,7 @@ export default function TaskForm({ tasks, setTasks }) {
               variant='outline'
               isLoading={props.isSubmitting}
               type='submit'
+              color='#f6f1ff'
             >
               Add task
             </Button>

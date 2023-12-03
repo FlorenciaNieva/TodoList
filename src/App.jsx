@@ -12,10 +12,28 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
+  const editComplete = (id, newTask, tasks) => {
+    return tasks.map((task) => task.id === id ? { ...newTask } : task)
+  }
+
+  const setCompleted = (tarea, key, completo) => {
+    const updateTask = editComplete(
+      key,
+      {
+      id: key,
+      task: tarea,
+      complete: !completo
+      },
+      tasks
+    ) 
+    setTasks(updateTask);
+    localStorage.setItem('tasks', JSON.stringify(updateTask));
+  }
+
   return (
     <>
       <Header />
-      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete}/>
+      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} />
     </>
   )
 }

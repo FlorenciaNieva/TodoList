@@ -43,8 +43,8 @@ export default function TaskForm({ tasks, setTasks }) {
             <Field id='task' name='task' validate={validateTask}>
               {({ field, form }) => (
                 <FormControl isInvalid={form.errors.task} isRequired>
-                  <FormLabel>Task</FormLabel>
-                  <Input {...field} placeholder='Escribe una tarea ...' />
+                  <FormLabel color='#f6f1ff'>Task</FormLabel>
+                  <Input {...field} placeholder='Escribe una tarea ...' borderColor='gray.200' />
                   <FormErrorMessage>{form.errors.task}</FormErrorMessage>
                 </FormControl>
               )}

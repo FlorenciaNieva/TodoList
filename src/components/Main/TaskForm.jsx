@@ -22,12 +22,15 @@ export default function TaskForm({ tasks, setTasks }) {
     return (
       <Formik
         initialValues={{
+          id: '',
           task: '',
+          complete: false
         }}
         onSubmit={(values, actions) => {
           const newTask = {
             id: uuidv4(),
-            task: values.task
+            task: values.task,
+            complete: values.complete
           }
           localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
           setTasks([ ...tasks, newTask]);

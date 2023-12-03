@@ -9,8 +9,9 @@ function App() {
   const originalTasks = JSON.parse(localStorage.getItem('tasks'));
 
   const onDelete = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
+    const updatedTasks = originalTasks.filter((task) => task.id !== id);
+    const render = tasks.filter((task) => task.id !== id);
+    setTasks(render);
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 

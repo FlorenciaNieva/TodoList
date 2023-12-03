@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
+  const [selectedFilter, setSelectedFilter] = useState('todos');
 
   const originalTasks = JSON.parse(localStorage.getItem('tasks'));
 
@@ -31,9 +32,11 @@ function App() {
     ) 
     setTasks(updateTask);
     localStorage.setItem('tasks', JSON.stringify(updateTask));
+    setSelectedFilter('todos');
   }
 
   const filterTasks = (filterOption) => {
+    setSelectedFilter(filterOption);
     if (filterOption === 'todos') {
       setTasks(originalTasks);
     } else if (filterOption === 'completas') {
@@ -48,7 +51,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} filterTasks={filterTasks} />
+      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} filterTasks={filterTasks} selectedFilter={selectedFilter} />
     </>
   )
 }

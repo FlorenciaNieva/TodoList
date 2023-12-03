@@ -32,6 +32,18 @@ function App() {
     localStorage.setItem('tasks', JSON.stringify(updateTask));
   }
 
+  const filterTasks = (filterOption) => {
+    if (filterOption === 'todos') {
+      setTasks(originalTasks);
+    } else if (filterOption === 'completas') {
+      const complete = originalTasks.filter(task => task.complete === true);
+      setTasks(complete);
+    } else if (filterOption === 'incompletas') {
+      const incomplete = originalTasks.filter(task => task.complete === false);
+      setTasks(incomplete);
+    }
+  };
+
   return (
     <>
       <Header />

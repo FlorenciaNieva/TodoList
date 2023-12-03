@@ -27,7 +27,7 @@ function App() {
       task: tarea,
       complete: !completo
       },
-      tasks
+      originalTasks
     ) 
     setTasks(updateTask);
     localStorage.setItem('tasks', JSON.stringify(updateTask));

@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} filterTasks={filterTasks} selectedFilter={selectedFilter} />
+      <Main tasks={tasks} setTasks={setTasks} onDelete={onDelete} setCompleted={setCompleted} filterTasks={filterTasks} selectedFilter={selectedFilter} originalTasks={originalTasks} setSelectedFilter={setSelectedFilter} />
     </>
   )
 }

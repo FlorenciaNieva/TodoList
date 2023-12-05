@@ -4,7 +4,7 @@ import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function TaskForm({ tasks, setTasks }) {
+export default function TaskForm({ tasks, setTasks,originalTasks, setSelectedFilter }) {
   function validateTask(value) {
     let error
     if (!value) {
@@ -32,8 +32,9 @@ export default function TaskForm({ tasks, setTasks }) {
             task: values.task,
             complete: values.complete
           }
-          localStorage.setItem('tasks', JSON.stringify([ ...tasks, newTask]));
-          setTasks([ ...tasks, newTask]);
+          localStorage.setItem('tasks', JSON.stringify([ ...originalTasks, newTask]));
+          setTasks([ ...originalTasks, newTask]);
+          setSelectedFilter('all');
           actions.setSubmitting(false);
           actions.resetForm();
         }}

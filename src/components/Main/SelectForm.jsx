@@ -8,9 +8,9 @@ export default function SelectForm({ filterTasks, selectedFilter }) {
       <FormControl>
         <FormLabel color='#f6f1ff'>Mostrar ...</FormLabel>
         <SelectChakra value={selectedFilter} focusBorderColor='#6e0acd' _hover={{background: "#8e0acd"}} color='#f6f1ff' onChange={(e) => filterTasks(e.target.value)}>
-          <option style={{ backgroundColor: '#6e0acd'}} value='todos'>Todos</option>
-          <option style={{ backgroundColor: '#6e0acd' }} value='completas'>Completas</option>
-          <option style={{ backgroundColor: '#6e0acd' }}value='incompletas'>Incompletas</option>
+          <option style={{ backgroundColor: '#6e0acd'}} value='all'>All</option>
+          <option style={{ backgroundColor: '#6e0acd' }} value='complete'>Complete</option>
+          <option style={{ backgroundColor: '#6e0acd' }}value='incomplete'>Incomplete</option>
         </SelectChakra>
       </FormControl>
     </div>

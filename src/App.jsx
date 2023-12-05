@@ -20,13 +20,13 @@ function App() {
     return tasks.map((task) => task.id === id ? { ...newTask } : task)
   }
 
-  const setCompleted = (tarea, key, completo) => {
+  const setCompleted = (homework, key, completed) => {
     const updateTask = editComplete(
       key,
       {
       id: key,
-      task: tarea,
-      complete: !completo
+      task: homework,
+      complete: !completed
       },
       originalTasks
     ) 

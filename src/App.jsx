@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
-  const [selectedFilter, setSelectedFilter] = useState('todos');
+  const [selectedFilter, setSelectedFilter] = useState('all');
 
   const originalTasks = JSON.parse(localStorage.getItem('tasks'));
 
@@ -20,29 +20,29 @@ function App() {
     return tasks.map((task) => task.id === id ? { ...newTask } : task)
   }
 
-  const setCompleted = (tarea, key, completo) => {
+  const setCompleted = (homework, key, completed) => {
     const updateTask = editComplete(
       key,
       {
       id: key,
-      task: tarea,
-      complete: !completo
+      task: homework,
+      complete: !completed
       },
       originalTasks
     ) 
     setTasks(updateTask);
     localStorage.setItem('tasks', JSON.stringify(updateTask));
-    setSelectedFilter('todos');
+    setSelectedFilter('all');
   }
 
   const filterTasks = (filterOption) => {
     setSelectedFilter(filterOption);
-    if (filterOption === 'todos') {
+    if (filterOption === 'all') {
       setTasks(originalTasks);
-    } else if (filterOption === 'completas') {
+    } else if (filterOption === 'complete') {
       const complete = originalTasks.filter(task => task.complete === true);
       setTasks(complete);
-    } else if (filterOption === 'incompletas') {
+    } else if (filterOption === 'incomplete') {
       const incomplete = originalTasks.filter(task => task.complete === false);
       setTasks(incomplete);
     }

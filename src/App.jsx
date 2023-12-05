@@ -37,12 +37,12 @@ function App() {
 
   const filterTasks = (filterOption) => {
     setSelectedFilter(filterOption);
-    if (filterOption === 'todos') {
+    if (filterOption === 'all') {
       setTasks(originalTasks);
-    } else if (filterOption === 'completas') {
+    } else if (filterOption === 'complete') {
       const complete = originalTasks.filter(task => task.complete === true);
       setTasks(complete);
-    } else if (filterOption === 'incompletas') {
+    } else if (filterOption === 'incomplete') {
       const incomplete = originalTasks.filter(task => task.complete === false);
       setTasks(incomplete);
     }

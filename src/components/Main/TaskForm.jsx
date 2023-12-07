@@ -26,17 +26,15 @@ export default function TaskForm({ tasks, setTasks,originalTasks, setSelectedFil
           complete: false
         }}
         onSubmit={(values, actions) => {
-          const newTask = {
-            id: self.crypto.randomUUID(),
-            task: values.task,
-            complete: values.complete
-          }
-          localStorage.setItem('tasks', JSON.stringify([ ...originalTasks, newTask]));
-          setTasks([ ...originalTasks, newTask]);
-          setSelectedFilter('all');
+          localStorage.setItem(
+            "tasks",
+            JSON.stringify([...originalTasks, {...values, id: crypto.randomUUID()}])
+          );
+          setTasks([...originalTasks, {...values, id: crypto.randomUUID()}]);
+          setSelectedFilter("all");
           actions.setSubmitting(false);
           actions.resetForm();
-        }}
+        }}  
         >
         {(props) => (
           <Form>

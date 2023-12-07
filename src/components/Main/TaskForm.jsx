@@ -2,7 +2,6 @@ import React from 'react'
 import { FormControl, FormLabel, FormErrorMessage, Input, Button} from '@chakra-ui/react'
 import { Form, Field, Formik } from 'formik';
 import { FaAngleRight } from "react-icons/fa";
-import { v4 as uuidv4 } from 'uuid';
 
 export default function TaskForm({ tasks, setTasks,originalTasks, setSelectedFilter }) {
   function validateTask(value) {
@@ -28,7 +27,7 @@ export default function TaskForm({ tasks, setTasks,originalTasks, setSelectedFil
         }}
         onSubmit={(values, actions) => {
           const newTask = {
-            id: uuidv4(),
+            id: self.crypto.randomUUID(),
             task: values.task,
             complete: values.complete
           }

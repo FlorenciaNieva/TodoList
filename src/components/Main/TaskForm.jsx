@@ -1,68 +1,70 @@
 import React from 'react'
-import { FormControl, FormLabel, FormErrorMessage, Input, Button} from '@chakra-ui/react'
-import { Form, Field, Formik } from 'formik';
+import { useState } from 'react'
+import { FormControl, FormLabel, Text, Input, Button} from '@chakra-ui/react'
 import { FaAngleRight } from "react-icons/fa";
 
-export default function TaskForm({ tasks, setTasks,originalTasks, setSelectedFilter }) {
+export default function TaskForm({ tasks, setTasks, originalTasks, setSelectedFilter }) {
+  const [inputValue, setInputValue] = useState('');
+  const [error, setError] = useState('');
+
   function validateTask(value) {
-    let error
     if (!value) {
-      error = 'Escribe una tarea'
+      setError("Escribe una tarea");
     } else if (/\d/.test(value)) {
-      error  = "El campo no permite números"
+      setError("El campo no permite números");
     } else if (value.length < 4) {
-      error  = "El campo debe contener al menos 4 caracteres"
+      setError("El campo debe contener al menos 4 caracteres");
     } else if (value.length > 100) {
-      error = "El campo no puede exceder los 100 caracteres"
-    } 
-    return error
+      setError("El campo no puede exceder los 100 caracteres");
+    } else {
+      setError("");
+    }
+    return error;
+    }
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+        const newTask = {
+          id: self.crypto.randomUUID(),
+          task: inputValue,
+          complete: false
+        };
+        const updatedTasks = [...tasks, newTask];
+        setTasks(updatedTasks);
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+        setSelectedFilter('all');
+        setInputValue(''); 
     }
 
     return (
-      <Formik
-        initialValues={{
-          id: '',
-          task: '',
-          complete: false
-        }}
-        onSubmit={(values, actions) => {
-          localStorage.setItem(
-            "tasks",
-            JSON.stringify([...originalTasks, {...values, id: crypto.randomUUID()}])
-          );
-          setTasks([...originalTasks, {...values, id: crypto.randomUUID()}]);
-          setSelectedFilter("all");
-          actions.setSubmitting(false);
-          actions.resetForm();
-        }}  
-        >
-        {(props) => (
-          <Form>
-            <Field id='task' name='task' validate={validateTask}>
-              {({ field, form }) => (
-                <FormControl isInvalid={form.errors.task} isRequired>
-                  <FormLabel color='#f6f1ff'>Task</FormLabel>
-                  <Input {...field} placeholder='Escribe una tarea ...' color='#f6f1ff' borderColor='gray.200' sx={{ '::placeholder': { color: '#f6f1ff' } }} focusBorderColor='#6e0acd' />
-                  <FormErrorMessage>{form.errors.task}</FormErrorMessage>
-                </FormControl>
-              )}
-            </Field>
-            <Button
-              mt={4}
-              rightIcon={<FaAngleRight />}
-              variant='outline'
-              isLoading={props.isSubmitting}
-              type='submit'
-              color='#f6f1ff'
-              _hover={{
-                background: "#8e0acd",
-              }}
-            >
-              Add task
-            </Button>
-          </Form>
-        )}
-      </Formik>
-    )
-  
+        <form onSubmit={handleSubmit}>
+          <FormControl isRequired>
+            <FormLabel color='#f6f1ff'>Task</FormLabel>
+            <Input 
+              name='task' 
+              value={inputValue} 
+              onChange={(e) => {
+                setInputValue(e.target.value);
+                validateTask(e.target.value);
+              }} 
+              placeholder='Escribe una tarea ...' 
+              color='#f6f1ff' borderColor='gray.200' sx={{ '::placeholder': { color: '#f6f1ff' } }} 
+              focusBorderColor='#6e0acd' 
+              />
+            {!error ? null : <Text color='#f6f1ff'>{error}</Text>}
+          </FormControl>
+          <Button
+            mt={4}
+            rightIcon={<FaAngleRight />}
+            variant='outline'
+            type='submit'
+            color='#f6f1ff'
+            _hover={{
+              background: "#8e0acd",
+            }}
+          >
+            Add task
+          </Button>
+        </form>
+    ) 
 }

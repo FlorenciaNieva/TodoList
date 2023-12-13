@@ -1,7 +1,6 @@
 import { Flex, Box, Button, Text } from "@chakra-ui/react";
 import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
-import styles from "./Task.module.css";
 
 export default function Task({ task, id, complete, onDelete, setCompleted }) {
   const handleComplete = (task, id, complete) => {
@@ -13,13 +12,14 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
       borderWidth="1px"
       bg="#f6f1ff"
       borderRadius="lg"
+      color={complete ? "gray" : "black"}
+      textDecoration={complete ? "line-through" : "none"}
       overflow="hidden"
       p="3"
       boxShadow="md"
       mb="4"
       maxW="85%"
       mx="auto"
-      className={complete ? styles.complete : ""}
     >
       <Flex justifyContent="space-between" alignItems="center">
         <Text fontSize="lg">{task}</Text>

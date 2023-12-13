@@ -4,7 +4,6 @@ import { FormControl, FormLabel, Text, Input, Button } from "@chakra-ui/react";
 import { FaAngleRight } from "react-icons/fa";
 
 export default function TaskForm({
-  tasks,
   setTasks,
   setSelectedFilter,
 }) {
@@ -33,7 +32,8 @@ export default function TaskForm({
       task: inputValue,
       complete: false,
     };
-    const updatedTasks = [...tasks, newTask];
+    const originalTasks = JSON.parse(localStorage.getItem("tasks"));
+    const updatedTasks = [...originalTasks, newTask];
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     setSelectedFilter("all");

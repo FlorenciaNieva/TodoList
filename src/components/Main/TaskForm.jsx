@@ -6,7 +6,6 @@ import { FaAngleRight } from "react-icons/fa";
 export default function TaskForm({
   tasks,
   setTasks,
-  originalTasks,
   setSelectedFilter,
 }) {
   const [inputValue, setInputValue] = useState("");

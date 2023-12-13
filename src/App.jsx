@@ -1,6 +1,8 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import ContainerForm from "./ContainerForm";
+import ContainerLists from "./ContainerLists";
 import { useState } from "react";
 
 function App() {
@@ -55,16 +57,21 @@ function App() {
   return (
     <>
       <Header />
-      <Main
-        tasks={tasks}
-        setTasks={setTasks}
-        onDelete={onDelete}
-        setCompleted={setCompleted}
-        filterTasks={filterTasks}
-        selectedFilter={selectedFilter}
-        originalTasks={originalTasks}
-        setSelectedFilter={setSelectedFilter}
-      />
+      <main>
+        <ContainerForm
+          tasks={tasks}
+          setTasks={setTasks}
+          filterTasks={filterTasks}
+          selectedFilter={selectedFilter}
+          originalTasks={originalTasks}
+          setSelectedFilter={setSelectedFilter}
+        />
+        <ContainerLists
+          tasks={tasks}
+          onDelete={onDelete}
+          setCompleted={setCompleted}
+        />
+      </main>
     </>
   );
 }

@@ -48,7 +48,7 @@ export default function TaskForm({ setTasks, setSelectedFilter }) {
             setInputValue(e.target.value);
             validateTask(e.target.value);
           }}
-          placeholder="Escribe una tarea ..."
+          placeholder="Write a task ..."
           color="#f6f1ff"
           borderColor="gray.200"
           sx={{ "::placeholder": { color: "#f6f1ff" } }}

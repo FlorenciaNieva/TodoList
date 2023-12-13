@@ -3,10 +3,6 @@ import { TiTickOutline } from "react-icons/ti";
 import { TiTimesOutline } from "react-icons/ti";
 
 export default function Task({ task, id, complete, onDelete, setCompleted }) {
-  const handleComplete = (task, id, complete) => {
-    setCompleted(task, id, complete);
-  };
-
   return (
     <Box
       borderWidth="1px"
@@ -31,7 +27,7 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
             variant="outline"
             _hover={{ background: "#8e0acd" }}
             aria-label="Completado"
-            onClick={() => handleComplete(task, id, complete)}
+            onClick={() => setCompleted(task, id, complete)}
           >
             <TiTickOutline />
           </Button>

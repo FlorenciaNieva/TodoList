@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
-import ContainerForm from "./ContainerForm";
-import ContainerLists from "./ContainerLists";
+import ContainerForm from "./components/Main/ContainerForm";
+import ContainerLists from "./components/Main/ContainerLists";
 import { useState } from "react";
 
 function App() {

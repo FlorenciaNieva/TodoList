@@ -8,7 +8,6 @@ export default function ContainerForm({
   setTasks,
   filterTasks,
   selectedFilter,
-  originalTasks,
   setSelectedFilter,
 }) {
   return (
@@ -27,7 +26,6 @@ export default function ContainerForm({
           <Task
             tasks={tasks}
             setTasks={setTasks}
-            originalTasks={originalTasks}
             setSelectedFilter={setSelectedFilter}
           />
         </Box>

@@ -3,22 +3,19 @@ import { useState } from "react";
 import { FormControl, FormLabel, Text, Input, Button } from "@chakra-ui/react";
 import { FaAngleRight } from "react-icons/fa";
 
-export default function TaskForm({
-  setTasks,
-  setSelectedFilter,
-}) {
+export default function TaskForm({ setTasks, setSelectedFilter }) {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
 
   function validateTask(value) {
     if (!value) {
-      setError("Escribe una tarea");
+      setError("Write a task");
     } else if (/\d/.test(value)) {
-      setError("El campo no permite números");
+      setError("The field does not allow numbers");
     } else if (value.length < 4) {
-      setError("El campo debe contener al menos 4 caracteres");
+      setError("The field must contain at least 4 characters");
     } else if (value.length > 100) {
-      setError("El campo no puede exceder los 100 caracteres");
+      setError("The field cannot exceed 100 characters");
     } else {
       setError("");
     }

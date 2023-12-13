@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "./TaskForm";
+import TaskForm from "./TaskForm";
 import Select from "./SelectForm";
 import { Flex, Spacer, Box } from "@chakra-ui/react";
 
@@ -23,7 +23,7 @@ export default function ContainerForm({
           backdropFilter="auto"
           backdropBlur="8px"
         >
-          <Task
+          <TaskForm
             tasks={tasks}
             setTasks={setTasks}
             setSelectedFilter={setSelectedFilter}

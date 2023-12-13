@@ -10,9 +10,8 @@ function App() {
   );
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const originalTasks = JSON.parse(localStorage.getItem("tasks"));
-
   const onDelete = (id) => {
+    const originalTasks = JSON.parse(localStorage.getItem("tasks"));
     const updatedTasks = originalTasks.filter((task) => task.id !== id);
     const render = tasks.filter((task) => task.id !== id);
     setTasks(render);
@@ -24,6 +23,7 @@ function App() {
   };
 
   const setCompleted = (homework, key, completed) => {
+    const originalTasks = JSON.parse(localStorage.getItem("tasks"));
     const updateTask = editComplete(
       key,
       {
@@ -39,6 +39,7 @@ function App() {
   };
 
   const filterTasks = (filterOption) => {
+    const originalTasks = JSON.parse(localStorage.getItem("tasks"));
     setSelectedFilter(filterOption);
     if (filterOption === "all") {
       setTasks(originalTasks);
@@ -62,7 +63,6 @@ function App() {
           setTasks={setTasks}
           filterTasks={filterTasks}
           selectedFilter={selectedFilter}
-          originalTasks={originalTasks}
           setSelectedFilter={setSelectedFilter}
         />
         <ContainerLists

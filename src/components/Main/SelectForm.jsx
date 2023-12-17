@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
 import {
   FormControl,
   FormLabel,
   Select as SelectChakra,
 } from "@chakra-ui/react";
+
+const options = ["All", "Complete", "Incomplete"]
 
 export default function SelectForm({ filterTasks, selectedFilter }) {
   return (
@@ -18,15 +19,7 @@ export default function SelectForm({ filterTasks, selectedFilter }) {
           color="#f6f1ff"
           onChange={(e) => filterTasks(e.target.value)}
         >
-          <option style={{ backgroundColor: "#6e0acd" }} value="all">
-            All
-          </option>
-          <option style={{ backgroundColor: "#6e0acd" }} value="complete">
-            Complete
-          </option>
-          <option style={{ backgroundColor: "#6e0acd" }} value="incomplete">
-            Incomplete
-          </option>
+          {options.map((value) => <option style={{ backgroundColor: "#6e0acd" }} value={value} >{value}</option>)}
         </SelectChakra>
       </FormControl>
     </div>

@@ -41,17 +41,11 @@ function App() {
   const filterTasks = (filterOption) => {
     const originalTasks = JSON.parse(localStorage.getItem("tasks"));
     setSelectedFilter(filterOption);
-    if (filterOption === "all") {
-      setTasks(originalTasks);
-    } else if (filterOption === "complete") {
-      const complete = originalTasks.filter((task) => task.complete === true);
-      setTasks(complete);
-    } else if (filterOption === "incomplete") {
-      const incomplete = originalTasks.filter(
-        (task) => task.complete === false
-      );
-      setTasks(incomplete);
-    }
+    filterOption === "Complete"
+      ? setTasks(originalTasks.filter((task) => task.complete === true))
+      : filterOption === "Incomplete"
+      ? setTasks(originalTasks.filter((task) => task.complete === false))
+      : setTasks(originalTasks);
   };
 
   return (

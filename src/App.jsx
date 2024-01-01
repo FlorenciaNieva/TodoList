@@ -5,10 +5,14 @@ import ContainerLists from "./components/Main/ContainerLists";
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || []
-  );
+  const [tasks, setTasks] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState("all");
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("tasks"))) {
+      setTasks(JSON.parse(localStorage.getItem("tasks")));
+    }
+  }, []);
 
   const onDelete = (id) => {
     const originalTasks = JSON.parse(localStorage.getItem("tasks"));

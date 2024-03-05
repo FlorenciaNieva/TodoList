@@ -5,7 +5,7 @@ import {
   Select as SelectChakra,
 } from "@chakra-ui/react";
 
-const options = ["All", "Complete", "Incomplete"]
+const options = ["All", "Complete", "Incomplete"];
 
 export default function SelectForm({ filterTasks, selectedFilter }) {
   return (
@@ -19,7 +19,15 @@ export default function SelectForm({ filterTasks, selectedFilter }) {
           color="#f6f1ff"
           onChange={(e) => filterTasks(e.target.value)}
         >
-          {options.map((value) => <option style={{ backgroundColor: "#6e0acd" }} value={value} >{value}</option>)}
+          {options.map((value, index) => (
+            <option
+              style={{ backgroundColor: "#6e0acd" }}
+              value={value}
+              key={index}
+            >
+              {value}
+            </option>
+          ))}
         </SelectChakra>
       </FormControl>
     </div>

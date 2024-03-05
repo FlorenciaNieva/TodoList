@@ -12,10 +12,10 @@ export default function ContainerForm({
 }) {
   return (
     <>
-      <Flex>
+      <Flex mb="5">
         <Box
-          m="4"
-          p="10"
+          m="10"
+          p="5"
           w="50%"
           border="1px"
           borderColor="#f6f1ff"
@@ -31,8 +31,8 @@ export default function ContainerForm({
         </Box>
         <Spacer />
         <Box
-          m="4"
-          p="10"
+          m="10"
+          p="5"
           w="50%"
           border="1px"
           borderColor="#f6f1ff"

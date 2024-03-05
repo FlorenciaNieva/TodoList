@@ -1,10 +1,12 @@
 import React from 'react'
-import Title from './Title'
+import { Heading } from '@chakra-ui/react'
 
 export default function Header() {
   return (
     <header>
-      <Title />
+      <Heading as='h1' size='4xl' color='#f6f1ff' my={5}>
+        Todo List
+      </Heading>
     </header>
   )
 }

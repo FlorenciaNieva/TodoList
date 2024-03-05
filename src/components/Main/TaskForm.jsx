@@ -44,6 +44,7 @@ export default function TaskForm({ setTasks, setSelectedFilter }) {
         <Input
           name="task"
           value={inputValue}
+          autoComplete="off"
           onChange={(e) => {
             setInputValue(e.target.value);
             validateTask(e.target.value);

@@ -7,7 +7,6 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
     <Box
       borderWidth="1px"
       bg="rgba(207, 207, 229, 0.1)"
-      borderRadius="35px"
       color={complete ? "gray" : "white"}
       textDecoration={complete ? "line-through" : "none"}
       overflow="hidden"
@@ -19,10 +18,11 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
       mx="auto"
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <Text fontSize="lg" wordBreak="break-word">{task}</Text>
+        <Text fontSize="lg" textAlign="start" wordBreak="break-word">{task}</Text>
         <Flex>
           <Button
-            mr={2}
+            mr={1}
+            p={0}
             variant="outline"
             border="none"
             color="white"
@@ -35,6 +35,7 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
             <FaCheck size={20} />
           </Button>
           <Button
+            p={0}
             variant="outline"
             border="none"
             color="white"

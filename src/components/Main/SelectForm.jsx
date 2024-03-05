@@ -14,14 +14,13 @@ export default function SelectForm({ filterTasks, selectedFilter }) {
         <FormLabel color="#f6f1ff">Show ...</FormLabel>
         <SelectChakra
           value={selectedFilter}
-          focusBorderColor="#6e0acd"
-          _hover={{ background: "#8e0acd" }}
+          focusBorderColor="#2d29fe"
           color="#f6f1ff"
           onChange={(e) => filterTasks(e.target.value)}
         >
           {options.map((value, index) => (
             <option
-              style={{ backgroundColor: "#6e0acd" }}
+              style={{ color:"black" }}
               value={value}
               key={index}
             >

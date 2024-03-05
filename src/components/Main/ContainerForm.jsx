@@ -1,7 +1,7 @@
 import React from "react";
 import TaskForm from "./TaskForm";
 import Select from "./SelectForm";
-import { Flex, Spacer, Box } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 export default function ContainerForm({
   tasks,
@@ -11,38 +11,36 @@ export default function ContainerForm({
   setSelectedFilter,
 }) {
   return (
-    <>
-      <Flex>
-        <Box
-          m="4"
-          p="10"
-          w="50%"
-          border="1px"
-          borderColor="#f6f1ff"
-          borderRadius="15px"
-          backdropFilter="auto"
-          backdropBlur="8px"
-        >
-          <TaskForm
-            tasks={tasks}
-            setTasks={setTasks}
-            setSelectedFilter={setSelectedFilter}
-          />
-        </Box>
-        <Spacer />
-        <Box
-          m="4"
-          p="10"
-          w="50%"
-          border="1px"
-          borderColor="#f6f1ff"
-          borderRadius="15px"
-          backdropFilter="auto"
-          backdropBlur="8px"
-        >
-          <Select filterTasks={filterTasks} selectedFilter={selectedFilter} />
-        </Box>
-      </Flex>
-    </>
+    <Grid 
+      mt="10"
+      templateColumns={{ base: "1fr", md: "1fr 1fr" }}
+      gap={2}
+      flexDirection={{ base: "column", md: "row" }}
+    >
+      <GridItem
+        mx="10"
+        mb="10"
+        p="5"
+        border="1px"
+        borderColor="#f6f1ff"
+        borderRadius="15px"
+      >
+        <TaskForm
+          tasks={tasks}
+          setTasks={setTasks}
+          setSelectedFilter={setSelectedFilter}
+        />
+      </GridItem>
+      <GridItem
+        mx="10"
+        mb="10"
+        p="5"
+        border="1px"
+        borderColor="#f6f1ff"
+        borderRadius="15px"
+      >
+        <Select filterTasks={filterTasks} selectedFilter={selectedFilter} />
+      </GridItem>
+    </Grid>
   );
 }

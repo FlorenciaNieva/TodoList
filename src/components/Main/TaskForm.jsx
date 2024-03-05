@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FormControl, FormLabel, Text, Input, Button } from "@chakra-ui/react";
-import { FaAngleRight } from "react-icons/fa";
+import { CgMathPlus } from "react-icons/cg";
 
 export default function TaskForm({ setTasks, setSelectedFilter }) {
   const [inputValue, setInputValue] = useState("");
@@ -44,6 +44,7 @@ export default function TaskForm({ setTasks, setSelectedFilter }) {
         <Input
           name="task"
           value={inputValue}
+          autoComplete="off"
           onChange={(e) => {
             setInputValue(e.target.value);
             validateTask(e.target.value);
@@ -52,21 +53,23 @@ export default function TaskForm({ setTasks, setSelectedFilter }) {
           color="#f6f1ff"
           borderColor="gray.200"
           sx={{ "::placeholder": { color: "#f6f1ff" } }}
-          focusBorderColor="#6e0acd"
+          focusBorderColor="#2d29fe"
         />
         {!error ? null : <Text color="#f6f1ff">{error}</Text>}
       </FormControl>
       <Button
         mt={4}
-        rightIcon={<FaAngleRight />}
         variant="outline"
+        paddingY="25px"
+        borderRadius="100%"
         type="submit"
         color="#f6f1ff"
         _hover={{
-          background: "#8e0acd",
+          border:"1px solid #2d29fe",
+          backgroundColor: "#2d29fe",
         }}
       >
-        Add task
+        <CgMathPlus size="20px" />
       </Button>
     </form>
   );

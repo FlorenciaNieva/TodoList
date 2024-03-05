@@ -5,7 +5,7 @@ import {
   Select as SelectChakra,
 } from "@chakra-ui/react";
 
-const options = ["All", "Complete", "Incomplete"]
+const options = ["All", "Complete", "Incomplete"];
 
 export default function SelectForm({ filterTasks, selectedFilter }) {
   return (
@@ -14,12 +14,19 @@ export default function SelectForm({ filterTasks, selectedFilter }) {
         <FormLabel color="#f6f1ff">Show ...</FormLabel>
         <SelectChakra
           value={selectedFilter}
-          focusBorderColor="#6e0acd"
-          _hover={{ background: "#8e0acd" }}
+          focusBorderColor="#2d29fe"
           color="#f6f1ff"
           onChange={(e) => filterTasks(e.target.value)}
         >
-          {options.map((value) => <option style={{ backgroundColor: "#6e0acd" }} value={value} >{value}</option>)}
+          {options.map((value, index) => (
+            <option
+              style={{ color:"black" }}
+              value={value}
+              key={index}
+            >
+              {value}
+            </option>
+          ))}
         </SelectChakra>
       </FormControl>
     </div>

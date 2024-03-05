@@ -19,7 +19,7 @@ export default function Task({ task, id, complete, onDelete, setCompleted }) {
       mx="auto"
     >
       <Flex justifyContent="space-between" alignItems="center">
-        <Text fontSize="lg">{task}</Text>
+        <Text fontSize="lg" wordBreak="break-word">{task}</Text>
         <Flex>
           <Button
             mr={2}
